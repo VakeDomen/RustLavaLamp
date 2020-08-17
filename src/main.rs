@@ -21,10 +21,10 @@ fn main() {
     let mut color_of_bubbles: [f32; 4] = generate_random_color();
     let mut target_color_of_bubbles: [f32; 4] = generate_random_color();
 
-    let mut interpolation_step_R: f32 = (target_color_of_bubbles[0] - color_of_bubbles[0]) / INTERPOLATION_STEPS as f32;
-    let mut interpolation_step_G: f32 = (target_color_of_bubbles[1] - color_of_bubbles[1]) / INTERPOLATION_STEPS as f32;
-    let mut interpolation_step_B: f32 = (target_color_of_bubbles[2] - color_of_bubbles[2]) / INTERPOLATION_STEPS as f32;
-    let mut interpolation_step_ALPHA: f32 = (target_color_of_bubbles[3] - color_of_bubbles[3]) / INTERPOLATION_STEPS as f32;
+    let mut interpolation_step_r: f32 = (target_color_of_bubbles[0] - color_of_bubbles[0]) / INTERPOLATION_STEPS as f32;
+    let mut interpolation_step_g: f32 = (target_color_of_bubbles[1] - color_of_bubbles[1]) / INTERPOLATION_STEPS as f32;
+    let mut interpolation_step_b: f32 = (target_color_of_bubbles[2] - color_of_bubbles[2]) / INTERPOLATION_STEPS as f32;
+    let mut interpolation_step_alpha: f32 = (target_color_of_bubbles[3] - color_of_bubbles[3]) / INTERPOLATION_STEPS as f32;
 
 
     while let Some(e) = events.next(&mut window) {
@@ -34,10 +34,10 @@ fn main() {
                 window.draw_2d(&e, |c, g, _| { 
                     let bubs = &bubbles;
 
-                    color_of_bubbles[0] += interpolation_step_R;
-                    color_of_bubbles[1] += interpolation_step_G;
-                    color_of_bubbles[2] += interpolation_step_B;
-                    color_of_bubbles[3] += interpolation_step_ALPHA;
+                    color_of_bubbles[0] += interpolation_step_r;
+                    color_of_bubbles[1] += interpolation_step_g;
+                    color_of_bubbles[2] += interpolation_step_b;
+                    color_of_bubbles[3] += interpolation_step_alpha;
 
                     clear(BG_COLOR, g);
                     for b in bubs.iter() {
@@ -55,10 +55,10 @@ fn main() {
                         (target_color_of_bubbles[3] - color_of_bubbles[3]).abs() < 0.01 
                     {
                         target_color_of_bubbles = generate_random_color();
-                        interpolation_step_R = (target_color_of_bubbles[0] - color_of_bubbles[0]) / INTERPOLATION_STEPS as f32;
-                        interpolation_step_G = (target_color_of_bubbles[1] - color_of_bubbles[1]) / INTERPOLATION_STEPS as f32;
-                        interpolation_step_B = (target_color_of_bubbles[2] - color_of_bubbles[2]) / INTERPOLATION_STEPS as f32;
-                        interpolation_step_ALPHA = (target_color_of_bubbles[3] - color_of_bubbles[3]) / INTERPOLATION_STEPS as f32;
+                        interpolation_step_r = (target_color_of_bubbles[0] - color_of_bubbles[0]) / INTERPOLATION_STEPS as f32;
+                        interpolation_step_g = (target_color_of_bubbles[1] - color_of_bubbles[1]) / INTERPOLATION_STEPS as f32;
+                        interpolation_step_b = (target_color_of_bubbles[2] - color_of_bubbles[2]) / INTERPOLATION_STEPS as f32;
+                        interpolation_step_alpha = (target_color_of_bubbles[3] - color_of_bubbles[3]) / INTERPOLATION_STEPS as f32;
                     }
                 });
             };

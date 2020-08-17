@@ -71,7 +71,7 @@ impl Bubble {
                 }
             } else {
                 self.r2 -= RADIUS_ANIMATION_SPEED;
-                if self.r2 >= self.r2_target {
+                if self.r2 <= self.r2_target {
                     self.r2_target += r_dff;
                     self.r2_asc = !self.r2_asc;
                 }
